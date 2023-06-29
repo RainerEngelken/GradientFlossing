@@ -5,7 +5,7 @@ LinearAlgebra.BLAS.set_num_threads(4)
 using BSON: @load, @save
 import Flux.Losses.logitbinarycrossentropy#, Flux.Losses.mse
 # This script trains a vanilla RNN on a XOR task
-include("gf_task05spatialXORShort.jl")
+include("GradientFlossing_XOR.jl")
 function trainRNNflossing(N, E, Ef, Ei, Ep, Ni, B, S, T, Tp, Ti, sIC, sIn, sNet, sONS, lr, b1, b2, IC, g, gbar, I1, delay, wsS, wsM, wrS, wrM, bS, bM, nLE, task, intype, Lwnt)
     flush(stdout)
     phi=tanh
