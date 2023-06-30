@@ -40,7 +40,7 @@ _GradientFlossing_ExampleCode.jl_:\
 Example scripts for training networks with gradient flossing before training, with gradient flossing before and during training and without gradient flossing.
 
 
-_GradientFlossing_XOR.jl_:\ 
+_GradientFlossing_XOR.jl_:\
 Generates input and target output for copy task and delayed XOR task.
 
 <!---
