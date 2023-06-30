@@ -1,0 +1,6 @@
+julia => v"1.6.7"
+
+[442b4e1a] BackwardsLinalg v0.1.1
+[587475ba] Flux v0.11.3
+[e6cf234a] RandomNumbers v1.5.3
+[e88e6eb3] Zygote v0.5.1
