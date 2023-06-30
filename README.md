@@ -11,9 +11,8 @@ In this work we show that RNN training can be improved by pushing Lyapunov expon
 - Download [Julia](https://julialang.org/downloads/) 
 
 #### Dependencies
-- Julia (>= 1.5, tested on 1.6)
-- Flux, PyPlot, Statistics, DelimitedFiles,RandomNumbers, ForwardDiff, BSON
-- scipy
+- Julia (1.6)
+- Flux, BackwardsLinalg
 
 ## Getting started
 To install the required packages, run the following in the julia REPL after installing Julia:
@@ -21,7 +20,7 @@ To install the required packages, run the following in the julia REPL after inst
 ```
 using Pkg
 
-for pkg in ["Flux", "PyPlot", "Statistics", "BackwardsLinalg", "RandomNumbers"]
+for pkg in ["Flux", "BackwardsLinalg"]
     Pkg.add(pkg)
 end
 ```
@@ -29,18 +28,19 @@ end
 For example, to train an RNN on tracking delayed XOR task, run:
 ```
 include("GradientFlossing_ExampleCode.jl")
-delay=10;seed=1
-trainRNNflossing(80, 301, 10, 50, 50, 2, 16, 1, 300, 55, 300, seed, seed, seed, seed, 0.001f0, 0.9, 0.999, 1, 1.0,0.0, 1.0,delay, 1.0f0, 0.0f0, 1.0f0, 0.0f0, 0.1f0, 0.0f0,75, -1, 3, 0.0)
+# setting parameters:
+N, E, Ef, Ei, Ep, Ni, B, S, T, Tp, Ti, sIC, sIn, sNet, sONS, lr, b1, b2, IC, g, gbar, I1, delay, wsS, wsM, wrS, wrM, bS, bM, nLE, task, intype, Lwnt=
+80, 3001, 100, 500, 500, 2, 16, 1, 300, 55, 300, 1,1,1,1, 0.001f0, 0.9, 0.999, 1, 1.0, 0.0, 1.0,10, 1.0f0, 0.0f0, 1.0f0, 0.0f0, 0.1f0, 0.0f0,75, -1, 3, 0.0
+
+trainRNNflossing(N, E, Ef, Ei, Ep, Ni, B, S, T, Tp, Ti, sIC, sIn, sNet, sONS, lr, b1, b2, IC, g, gbar, I1, delay, wsS, wsM, wrS, wrM, bS, bM, nLE, task, intype, Lwnt)
 ```
 
 ## Repository Overview
 
-### src/ 
-Contains the source files.\
-gf_task05spatialXORShort.jl - generates input and target output for copy task and delayed XOR task.\
-GradientFlossing_ExampleCode.jl - trains a RNN on the delayed XOR task.
+GradientFlossing_XOR.jl - generates input and target output for copy task and delayed XOR task.\
+GradientFlossing_ExampleCode.jl - trains an RNN on the delayed XOR task with gradient flossing.
 
-### example_code/
+_GradientFlossing_ExampleCode.jl_:\
 Example scripts for training networks with gradient flossing before training, with gradient flossing before and during training and without gradient flossing.
 <!---
 
