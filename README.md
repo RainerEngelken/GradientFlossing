@@ -36,12 +36,13 @@ trainRNNflossing(N, E, Ef, Ei, Ep, Ni, B, S, T, Tp, Ti, sIC, sIn, sNet, sONS, lr
 ```
 
 ## Repository Overview
-
-GradientFlossing_XOR.jl - generates input and target output for copy task and delayed XOR task.\
-GradientFlossing_ExampleCode.jl - trains an RNN on the delayed XOR task with gradient flossing.
-
 _GradientFlossing_ExampleCode.jl_:\
 Example scripts for training networks with gradient flossing before training, with gradient flossing before and during training and without gradient flossing.
+
+
+_GradientFlossing_XOR.jl_:\ 
+Generates input and target output for copy task and delayed XOR task.
+
 <!---
 
 runOneStimulus.jl trains an RNN on tracking one OU-signal showing that the network becomes more tightly balanced over training epochs.\
